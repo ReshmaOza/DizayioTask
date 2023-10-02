@@ -44,7 +44,7 @@ export const dataStateSlice = createSlice({
                     tempNotesData.push(tempdataStore)
                     asyncStoreFunction(tempNotesData)
                 }else{
-                    tempasynstore.push(tnempdataStore)
+                    tempasynstore.push(tempdataStore)
                     asyncStoreFunction(tempasynstore)
                 }
                
@@ -57,8 +57,13 @@ export const dataStateSlice = createSlice({
             state.notesList = data.payload.notesList
         },
         resetData : (state,data)=>{
-            state.notesList = [],
-            state.dataStore = []
+            // state.notesList = [],
+            // state.dataStore = []
+            return{
+                ...state,
+                dataStore : [],
+                notesList : []
+            }
         }
     }
 })
