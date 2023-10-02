@@ -95,8 +95,8 @@ const NoteScreen = ({ navigation, route }) => {
 
     //for backArrowButton
 
-    const backArrowButton = () =>{
-        if(route.params.isForEdit){
+    const backArrowButton = () => {
+        if (route.params.isForEdit) {
             Alert.alert('Hold on!', 'Are you sure you want to go back?', [
                 {
                     text: 'Cancel',
@@ -105,7 +105,7 @@ const NoteScreen = ({ navigation, route }) => {
                 },
                 { text: 'YES', onPress: () => navigation.pop() },
             ]);
-        }else{
+        } else {
             Alert.alert('Hold on!', 'Are you sure you want to go back?', [
                 {
                     text: 'Cancel',
@@ -214,7 +214,7 @@ const NoteScreen = ({ navigation, route }) => {
     const onNoButtonSaveAlert = () => {
         if (route.params.isForEdit) {
             navigation.pop()
-        }else{
+        } else {
             setTimeout(() => {
                 actions.resetDataAction({
                 })
@@ -266,10 +266,10 @@ const NoteScreen = ({ navigation, route }) => {
 
                             return (
                                 <TouchableOpacity style={styles.imageVideoViewStyle}
-                                    onPress={() => [setViewImage(true), setImageURI(item[0].uri)]}
+                                    onPress={() => [setViewImage(true), setImageURI(item[0].fileCopyUri)]}
                                 >
                                     <View key={index}>
-                                        <Image resizeMode={'contain'} source={{ uri: item[0].uri }} style={{ width: '100%', height: '100%' }} />
+                                        <Image resizeMode={'contain'} source={{ uri: item[0].fileCopyUri }} style={{ width: '100%', height: '100%' }} />
                                     </View>
                                 </TouchableOpacity>
                             )
@@ -283,10 +283,10 @@ const NoteScreen = ({ navigation, route }) => {
                             return (
                                 <View key={index} style={styles.imageVideoViewStyle}>
                                     <VideoPlayer
-                                        video={{ uri: item[0].uri }}
+                                        video={{ uri: item[0].fileCopyUri }}
                                         videoWidth={50}
                                         videoHeight={40}
-                                        thumbnail={{ uri: item.uri }}
+                                        thumbnail={{ uri: item.fileCopyUri }}
                                         //duration={30}
                                         autoplay={false}
                                         showDuration={true}
@@ -304,7 +304,7 @@ const NoteScreen = ({ navigation, route }) => {
                             return (
                                 <View key={index} style={{ width: '100%', margin: 10 }}>
                                     <AudioPlayer
-                                        url={item[0].uri}
+                                        url={item[0].fileCopyUri}
                                         style={{ backgroundColor: '#D3E2ED', paddingTop: 20 }}
                                         minimumTrackTintColor={'red'}
                                         maximumTrackTintColor={'green'}
@@ -359,14 +359,14 @@ const styles = StyleSheet.create({
         alignContent: 'space-around',
         borderRadius: 8,
         margin: 15,
-        fontFamily:'Roboto',
+        fontFamily: 'Roboto',
     },
     textInputStyle: {
         padding: 10,
         margin: 4,
         fontWeight: '400',
         color: '#272728',
-        fontFamily:'Roboto',
+        fontFamily: 'Roboto',
     },
     bottomButtonImageStyle: {
         width: 65,

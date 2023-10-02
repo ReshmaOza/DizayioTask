@@ -6,8 +6,9 @@ export async function galleryforImageClick() {
         try {
             const res = await DocumentPicker.pick({
                 type: [
-                    DocumentPicker.types.images,
+                    DocumentPicker.types.images,            
                 ],
+                mode : 'import', copyTo: 'documentDirectory',
                 presentationStyle: 'fullScreen'
             });
             resolve(res);
@@ -31,6 +32,7 @@ export async function galleryforVideoClick() {
                 type: [
                     DocumentPicker.types.video,
                 ],
+                mode : 'import', copyTo: 'documentDirectory',
                 presentationStyle: 'fullScreen'
             });
             //console.log("JSON.stringify(res): galleryforVideoClick", JSON.stringify(res));
@@ -52,7 +54,8 @@ export async function audioClick() {
             const res = await DocumentPicker.pick({
                 type: [
                     DocumentPicker.types.audio,
-                ]
+                ],
+                mode : 'import', copyTo: 'documentDirectory',
             });
             //console.log("JSON.stringify(res): audioClick", JSON.stringify(res));
             resolve(res);
