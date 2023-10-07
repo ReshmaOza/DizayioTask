@@ -6,7 +6,7 @@ export async function galleryforImageClick() {
         try {
             const res = await DocumentPicker.pick({
                 type: [
-                    DocumentPicker.types.images,            
+                    DocumentPicker.types.allFiles,            
                 ],
                 mode : 'import', copyTo: 'documentDirectory',
                 presentationStyle: 'fullScreen'
